@@ -1,0 +1,144 @@
+.table {
+    color: white !important;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.collection {
+    color: black;
+    font-size: 11px;
+}
+
+.formAffiliazione {
+    display: flex;
+    width: 60%;
+    height: 70%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.formAffiliazione .contenitore-1 {
+    flex-grow: 1;
+    width: 60%;
+    justify-content: center;
+}
+
+.formAffiliazione .contenitore-2 {
+    flex-grow: 1;
+    width: 60%;
+    justify-content: center;
+}
+
+.formAffiliazione .contenitore-3 {
+    flex-grow: 1;
+    width: 30%;
+    justify-content: center;
+}
+.formAffiliazione .contenitore-4 {
+    flex-grow: 1;
+    width: 10%;
+    justify-content: center;
+    text-align: center;
+}
+
+.contenitore-affiliati {
+    /* border: 2px solid orange; */
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.contenitore-affiliati > .contenitore-1 {
+    flex-grow: 1;
+    width: 14%;
+    height: 100%;
+}
+
+.contenitore-affiliati > .contenitore-2 {
+    flex-grow: 2;
+    width: 60%;
+    height: 100%;
+    justify-content: center;
+}
+
+.contenitore-affiliati > .contenitore-2 > .input-group {
+    width: 60%;
+    /* margin-left: 160px; */
+}
+.contenitore-affiliati > .contenitore-3 {
+    flex-grow: 1;
+    width: 10%;
+    height: 100%;
+    justify-content: right;
+}
+
+.contenitore-affiliati > .contenitore-2-2colonne {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    margin: 0 auto;
+}
+
+.contenitore-affiliati > .contenitore-2-2colonne > .canaleTwitch {
+    flex-grow: 1;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.contenitore-affiliati > .contenitore-2-colonna {
+    display: flex;
+    width: 60%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-box-orient: horizontal;
+    margin: 0 auto;
+}
+
+.contenitore-affiliati > .contenitore-2-colonna .canaleTwitch {
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+}
+
+.contenitore-affiliati > .contenitoreRigaColonne {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    margin: 0 auto;
+}
+
+.contenitore-affiliati > .contenitoreRigaColonne > .canaleTwitch-piccolo {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.contenitore-affiliati > .contenitoreRigaColonne > .canaleTwitch {
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}

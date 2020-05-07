@@ -1,0 +1,57 @@
+<div *ngIf="isAuthenticated">
+    <app-navbar-priv></app-navbar-priv>
+</div>
+<div *ngIf="!isAuthenticated">
+    <app-navbar-pub></app-navbar-pub>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <alert></alert>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8" *ngIf="currentPost && !onClickEdit">
+            <div class="form-group">
+                <h2>{{currentPost.Titolo}}</h2>
+                <p><i class="fa fa-calendar"></i> Postato in data : {{currentPost.DataPubblicazione | date}}</p>
+                <img src="{{currentPost.Url_Image}}" alt="immagine" class="img-fluid">
+                <p>
+                    {{currentPost.Contenuto}}
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-8" *ngIf="currentPost && onClickEdit">
+            <div class="form-group" [formGroup]="postForm" (ngSubmit)="savePost()">
+                <label for="titolo">Titolo da modificare</label>
+                <input type="titolo" class="form-control" id="titolo" formControlName="titolo" name="titolo"
+                    placeholder="{{currentPost.Titolo}}">
+                <label for="exampleFormControlTextarea1">Modifica immagine : </label>
+                <img src="{{currentPost.Url_Image}}" alt="immagine" class="img-fluid">
+                <label for="exampleFormControlTextarea1">Contenuto post</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="200" formControlName="contenuto"
+                    name="contenuto">{{currentPost.Contenuto}}</textarea>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Pubblica un post</h3>
+                </div>
+                <div class="panel-body">
+                    <button class="btn btn-primary btn-block" type="button" id="btn-signup" (click)="editPost()"
+                        *ngIf="editPostEnable && !onClickEdit"> Modifica Post</button>
+                    <button class="btn btn-primary btn-block" type="button" id="btn-signup" (click)="savePost()"
+                        *ngIf="editPostEnable && onClickEdit"> Salva
+                        Post</button>
+                    <button class="btn btn-primary btn-block" type="button" id="btn-signup" (click)="cancelChanges()"
+                        *ngIf="editPostEnable && onClickEdit"> Annulla modifiche</button>
+                    <button class="btn btn-primary btn-block" type="button" id="btn-signup">Vota</button>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

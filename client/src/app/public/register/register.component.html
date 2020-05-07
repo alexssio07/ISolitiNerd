@@ -1,0 +1,148 @@
+<!-- <div id="logreg-forms">
+    <form class="form-signup" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Registrazione</h1>
+        <div class="social-login">
+            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up
+                    with Facebook</span> </button>
+        </div>
+        <div class="social-login">
+            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up
+                    with Google+</span> </button>
+        </div>
+
+        <p style="text-align:center">OR</p>
+
+        <input type="text" formControlName="pageFacebook" name="pageFacebook" class="form-control"
+            placeholder="Pagina di Facebook" required="">
+        <input type="text" formControlName="profileSteam" name="profileSteam" class="form-control"
+            placeholder="Nickname di Steam" required="">
+        <input type="text" formControlName="profileInstagram" name="profileInstagram" class="form-control"
+            placeholder="Profilo Instagram URL" required="">
+        <input type="text" formControlName="youtubeChannel" name="youtubeChannel" class="form-control"
+            placeholder="Canale Youtube URL" required="">
+        <input type="text" formControlName="twitchChannel" name="twitchChannel" class="form-control"
+            placeholder="Canale Twitch URL" required="">
+
+        <input [hidden]="true" type="text" formControlName="nickname" name="nickname" class="form-control"
+            placeholder="Nickname" required="">
+        <input type="email" formControlName="email" name="email" class="form-control" placeholder="Email address"
+            required="">
+        <input type="text" formControlName="username" name="username" class="form-control" placeholder="Username"
+            required="" (change)="onChangeUsername()">
+        <small class="form-text text-muted usernameHelp" *ngIf="usernameIncorrect">Username già registrato.</small>
+        <input type="password" formControlName="password" name="password" class="form-control" placeholder="Password"
+            required="">
+        <input type="password" formControlName="confermapassword" name="confermapassword" class="form-control"
+            placeholder="Conferma Password" required="">
+
+        <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Registrati</button>
+        <button class="btn btn-primary btn-block" type="button" id="btn-signup" (click)="backToHome()"><i
+                class="fas fa-user-plus"></i> Torna alla Home</button>
+    </form>
+</div> -->
+
+<div class="page-wrapper bg-red p-t-180 p-b-100">
+    <div class="wrapper wrapper--w960">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Registrazione</h2>
+                <form class="form-signup form-font" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                    <div class="row row-space">
+                        <div class="col-4">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" formControlName="username" name="username"
+                                    id="username" placeholder="Username" required (change)="onChangeUsername()">
+                            </div>
+                            <div *ngIf="submitted && f.username.errors" class="alert alert-danger">
+                                <div *ngIf="f.username.errors.required">L'username è obbligatorio</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <input class="input--style-2" type="password" formControlName="password" name="password"
+                                    placeholder="Password" required>
+                            </div>
+                            <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
+                                <div *ngIf="f.password.errors.required">La password è obbligatoria</div>
+                                <div *ngIf="f.password.errors.minlength">La password deve essere min 6 caratteri</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <input class="input--style-2" type="password" formControlName="confermapassword"
+                                    name="confermapassword" placeholder="Conferma Password" required="">
+                            </div>
+                            <div *ngIf="submitted && f.confermapassword.errors" class="alert alert-danger">
+                                <div *ngIf="f.confermapassword.errors.required">La password è obbligatoria</div>
+                                <div *ngIf="f.confermapassword.errors.minlength">La password deve essere min 6 caratteri</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" formControlName="nome" name="nome"
+                                    placeholder="Nome" required="">
+                            </div>
+                            <div *ngIf="submitted && f.nome.errors" class="alert alert-danger">
+                                <div *ngIf="f.nome.errors.required">Il nome è obbligatorio.</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <input class="input--style-2" type="email" formControlName="email" name="email"
+                                    placeholder="E-Mail" required="">
+                            </div>
+                            <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
+                                <div *ngIf="f.email.errors.required">L'E-Mail deve essere obbligatoria.</div>
+                                <div *ngIf="f.email.errors.email">L'E-Mail deve essere valida.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-4">
+                            <div class="input-group">
+                                <input type="text" formControlName="paginaFacebook" name="paginaFacebook"
+                                    class="input--style-2" placeholder="Pagina di Facebook" required="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <input type="text" formControlName="profiloSteam" name="profiloSteam"
+                                    class="input--style-2" placeholder="Nickname di Steam" required="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <input type="text" formControlName="profiloInstagram" name="profiloInstagram"
+                                    class="input--style-2" placeholder="Profilo Instagram URL" required="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <input type="text" formControlName="canaleTwitch" name="canaleTwitch" class="input--style-2"
+                                placeholder="Canale Twitch URL" required="">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" formControlName="canaleYoutube" name="canaleYoutube"
+                                class="input--style-2" placeholder="Canale Youtube URL" required="">
+                        </div>
+                    </div>
+                    <div class="p-t-30"></div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-user-plus"></i>
+                                Registrati</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary btn-block" type="button" id="btn-signup"
+                                (click)="backToHome()"><i class="fa fa-home"></i> Torna alla Home</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

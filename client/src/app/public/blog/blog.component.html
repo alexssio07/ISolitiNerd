@@ -1,0 +1,75 @@
+<div *ngIf="isAuthenticated">
+    <app-navbar-priv></app-navbar-priv>
+</div>
+<div *ngIf="!isAuthenticated">
+    <app-navbar-pub></app-navbar-pub>
+</div>
+
+<h2 class="text-center my-5">Blog</h2>
+<div class="container-allpost">
+    <div class="row">
+        <div *ngFor="let post of currentPosts | paginate:{itemsPerPage: 6, currentPage:p}" class="col-sm-4 mb-4">
+            <div class="entry2">
+                <img src={{post.Url_Image}} alt="Image" class="img-fluid rounded" (click)="apriPosts(post)">
+                <div class="mx-2">
+                    <span class="post-category text-white bg-secondary mt-3">Politics</span>
+                    <h4 class="mt-3">{{post.Titolo}}</h4>
+                    <div class="post-meta align-items-center text-left clearfix">
+                        <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image"
+                                class="img-fluid"></figure>
+                        <span class="mt-1 usernameTitle">By {{post.UsernameAuthor}}</span>
+                        <span>&nbsp;-&nbsp; {{post.DataPubblicazione | date}}</span>
+                    </div>
+                    <p>{{post.Contenuto | slice:0:120}}...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-tablePost">
+    <div class="container-elementPosts px-2">
+        <h4 class="title-categoria"><span>CATEGORIA</span></h4>
+        <div class="sottocategorie">
+            <span class="sottocategoria"><a href="#">All</a></span>&nbsp;/&nbsp;
+            <span class="sottocategoria"><a class="td-subcat-link" href="#">Nintendo</a></span>&nbsp;/&nbsp;
+            <span class="sottocategoria"><a class="td-subcat-link" href="#">Switch</a></span>&nbsp;/&nbsp;
+            <span class="sottocategoria"><a class="td-subcat-link" href="#">Wii - Wii U</a></span>
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 ml-2">
+                <h5 class="m-0 font-weight-bold text-primary">Tutti i post pubblicati</h5>
+            </div>
+            <div class="card-body">
+                <table class="responsive-table highlight">
+                    <thead>
+                        <tr>
+                            <th>Titolo&nbsp;
+                                <button type="button" class="btn"><i class="fas fa-sort-up"></i></button>&nbsp;
+                                <button type="button" class="btn"><i class="fas fa-sort-down"></i></button>
+                            </th>
+                            <th>Contenuto</th>
+                            <th>Categoria</th>
+                            <th>Autore</th>
+                            <th>Data Pubblicazione</th>
+                            <th>Data Ultima Modifica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let post of currentPosts | orderBy: filterPost">
+                            <td>{{ post.Titolo | slice:0:25 }}</td>
+                            <td>{{ post.Contenuto | slice:0:35 }} ...</td>
+                            <td>Categoria</td>
+                            <td>{{ post.UsernameAuthor }}</td>
+                            <td>{{ post.DataPubblicazione | date }}</td>
+                            <td>{{ post.DataUltimaModifica | date }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container-elements px-2">
+        coooodiosaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssss
+    </div> -->
+</div>

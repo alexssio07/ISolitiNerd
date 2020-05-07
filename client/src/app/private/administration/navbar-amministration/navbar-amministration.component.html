@@ -1,0 +1,45 @@
+<div class="d-flex" id="wrapper">
+  <div class="bg-light" id="sidebar-wrapper">
+    <div class="sidebar-heading">Pannello Amministrazione</div>
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action bg-light" [ngClass]="this.menuDashboard[0].open === true ? 'list-group-item-active' : ''" (click)="openMenu(0)">Dashboard</a>
+      <a class="list-group-item list-group-item-action bg-light" [ngClass]="this.menuDashboard[1].open === true ? 'list-group-item-active' : ''" (click)="openMenu(1)">Blog</a>
+      <a class="list-group-item list-group-item-action bg-light" [ngClass]="this.menuDashboard[2].open === true ? 'list-group-item-active' : ''" (click)="openMenu(2)">Utenti</a>
+      <a class="list-group-item list-group-item-action bg-light" [ngClass]="this.menuDashboard[3].open === true ? 'list-group-item-active' : ''" (click)="openMenu(3)">Affiliazioni</a>
+      <a class="list-group-item list-group-item-action bg-light"> Messaggi
+        <div class="container-fluid">
+          <br>
+          <a class="list-group-item list-group-item-action bg-light" [ngClass]="this.menuDashboard[4].open === true ? 'list-group-item-active' : ''" (click)="openMenu(4)">Bug</a>
+          <a class="list-group-item list-group-item-action bg-light" [ngClass]="this.menuDashboard[5].open === true ? 'list-group-item-active' : ''" (click)="openMenu(5)">Posta in arrivo</a>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div *ngIf="this.menuDashboard[0].open">
+        <h1 class="mt-4 ml-4">Dashboard</h1>
+      </div>
+      <div *ngIf="this.menuDashboard[1].open">
+        <h1 class="mt-4 ml-4">Blog</h1>
+        <app-posts [isOpen]="this.menuDashboard[2].open"></app-posts>
+      </div>
+      <div *ngIf="this.menuDashboard[2].open">
+        <h1 class="mt-4 ml-4">Users</h1>
+        <app-utentiban [isOpen]="this.menuDashboard[2].open"></app-utentiban>
+      </div>
+      <div *ngIf="this.menuDashboard[3].open">
+        <h1 class="mt-4 ml-4">Affiliazioni</h1>
+        <app-gestioneaffiliazioni [isOpen]="this.menuDashboard[3].open"></app-gestioneaffiliazioni>
+      </div>
+      <div *ngIf="this.menuDashboard[4].open">
+        <h1 class="mt-4 ml-4">Bug</h1>
+        <app-segnalazionibug [isOpen]="this.menuDashboard[4].open"></app-segnalazionibug>
+      </div>
+      <div *ngIf="this.menuDashboard[5].open">
+        <h1 class="mt-4 ml-4">Posta in arrivo</h1>
+        <app-postainarrivo [isOpen]="this.menuDashboard[5].open"></app-postainarrivo>
+      </div>
+    </div>
+  </div>
+</div>

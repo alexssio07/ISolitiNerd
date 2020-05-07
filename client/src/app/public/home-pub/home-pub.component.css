@@ -1,0 +1,232 @@
+.contenitoreMenu {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+.contenitoreMenu > .menu {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}
+.contenitoreMenu > .footer {
+    flex-grow: 2;
+    width: 100%;
+    height: 60%;
+}
+
+.contenitoreMenu > .input-group > .input-group-prepend > .input-group-text {
+    height: 36px !important;
+}
+/* 
+.contenitoreMenu > .input-group {
+    width: 20%;
+    margin-left: 160px;
+}
+.contenitoreMenu > .contenitoreBody {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    margin: 0 auto;
+}
+
+.contenitoreMenu > .contenitoreBody > .canaliTwitch-1 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreBody > .canaliTwitch-2 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreBody > .canaliTwitch-3 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreBody > .canaliTwitch-4 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreBody > .canaliTwitch-5 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreBody > .canaliTwitch-6 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+} */
+
+/* #region ColonneDa2 */
+.contenitoreMenu > .input-groupColonne2 {
+    width: 30%;
+    margin-left: 160px;
+}
+ .contenitoreMenu > .contenitoreColonne2 {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    margin: 0 auto;
+}
+
+.contenitoreMenu > .contenitoreColonne2 > .canaliTwitch-1 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreColonne2 > .canaliTwitch-2 {
+    flex-grow: 1;
+    width: 40%; 
+    justify-content: center;
+}
+
+/* .contenitoreMenu > .contenitoreColonne2 > .canaliTwitch-2 > .description-view {
+    margin-top: 10px;
+} */
+
+.contenitoreMenu > .contenitoreColonne2 > .canaliTwitch-3 {
+    flex-grow: 1;
+    width: 40%; 
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreColonne2 > .canaliTwitch-4 {
+    flex-grow: 1;
+    width: 40%; 
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreColonne2 > .canaliTwitch-5 {
+    flex-grow: 1;
+    width: 40%; 
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreColonne2 > .canaliTwitch-6 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+} 
+/* #endregion */
+
+
+/* #region ColonneDa1 */
+.contenitoreMenu > .input-groupColonna1 {
+    width: 30%;
+    margin-left: 260px;
+}
+.contenitoreMenu > .contenitoreColonna1 {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-box-orient: horizontal;
+    margin: 0 auto;
+}
+
+.contenitoreMenu > .contenitoreColonna1 > .canaliTwitch-1 {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreColonna1 > .canaliTwitch-2 {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreColonna1 > .canaliTwitch-3 {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreColonna1 > .canaliTwitch-4 {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreColonna1 > .canaliTwitch-5 {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreColonna1 > .canaliTwitch-6 {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+/* #endregion */
+
+/* #region RigaPoiColonneDa2 */
+.contenitoreMenu > .input-groupRigaColonne {
+    width: 30%;
+    margin-left: 160px;
+}
+.contenitoreMenu > .contenitoreRigaColonne {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    margin: 0 auto;
+}
+
+.contenitoreMenu > .contenitoreRigaColonne > .canaliTwitch-1 {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreRigaColonne > .canaliTwitch-2 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+}
+
+.contenitoreMenu > .contenitoreRigaColonne > .canaliTwitch-3 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreRigaColonne > .canaliTwitch-4 {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.contenitoreMenu > .contenitoreRigaColonne > .canaliTwitch-5 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+}
+.contenitoreMenu > .contenitoreRigaColonne > .canaliTwitch-6 {
+    flex-grow: 1;
+    width: 40%;
+    justify-content: center;
+}
+
+/* #endregion */
+.input-group {
+    -webkit-box-align: baseline;
+    align-items: flex-start;
+}
+
+@media only screen and (max-width: 600px) {
+
+};

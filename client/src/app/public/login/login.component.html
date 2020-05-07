@@ -1,0 +1,50 @@
+<div class="page-wrapper bg-red p-t-180 p-b-100">
+  <div class="wrapper wrapper--w960">
+      <div class="card card-2">
+          <div class="card-heading"></div>
+          <div class="card-body">
+              <h2 class="title">Login</h2>
+              <form class="form-signup form-font" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                  <div class="row row-space">
+                      <div class="col-12">
+                          <div class="input-group">
+                              <input class="input--style-2" type="text" formControlName="username" name="username"
+                                  id="username" placeholder="Username" required>
+                          </div>
+                          <div *ngIf="submitted && f.username.errors" class="alert alert-danger">
+                            <div *ngIf="f.username.errors.required">Inserisci l'username</div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                          <div class="input-group">
+                              <input class="input--style-2" type="password" formControlName="password" name="password"
+                                  placeholder="Password" required>
+                          </div>
+                          <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
+                            <div *ngIf="f.password.errors.required">Inserisci la password</div>
+                            <div *ngIf="f.password.errors.minlength">La password deve essere min 6 caratteri</div>
+                            <div *ngIf="passwordErrata">Password errata</div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="p-t-30">
+                    <label>
+                        <input type="checkbox" class="filled-in" [checked]="ricordami" (change)="onChangeRicordami($event)"/>
+                        <span>Ricordami</span>
+                      </label>
+                  </div>
+                  <div class="row row-space">
+                      <div class="col-6">
+                          <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>
+                              Login</button>
+                      </div>
+                      <div class="col-6">
+                          <button class="btn btn-primary btn-block" type="button" id="btn-signup"
+                              (click)="backToHome()"><i class="fa fa-home"></i> Torna alla Home</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

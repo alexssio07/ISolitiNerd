@@ -1,0 +1,16 @@
+.card {
+    background-color: rgba(0, 140, 255, 0.15) !important;
+}
+
+.table {
+    color: white !important;
+}
+
+.modal .modal-content {
+    padding: 5px;
+}
+
+#myModal {
+    padding-left: 5px;
+    padding-right: 5px;
+}

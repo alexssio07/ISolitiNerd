@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+.fontTitolo {
+    font-family: 'Dosis:500', sans-serif;
+}
+
+.fontMenu {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: medium;
+    color: white !important;
+}
+
+.nav-item:hover {
+    /* font-family: 'Nanum Gothic:800', sans-serif;
+    font-size: large; */
+    border: 2px solid;
+    border-color: rgba(0, 132, 255, 0.3);
+    box-shadow: 3px 3px rgba(0, 132, 255, 0.3);
+    font-weight: 800;
+}
+
+.navbar_border_menu {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid;
+    box-shadow: -1188px 2px rgba(0, 140, 255, 0.5) !important;
+}
+
+.navbar_border_menu .navbar {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.navbar_border_menu .navbar_border_login {
+    border: 1px solid;
+    box-shadow: 1600px 2px rgba(0, 140, 255, 0.5) !important;
+}
+
+.nav-item {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav-text {
+    color: white !important;
+}

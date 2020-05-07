@@ -1,0 +1,110 @@
+<div *ngIf="isAuthenticated">
+    <app-navbar-priv></app-navbar-priv>
+</div>
+<div *ngIf="!isAuthenticated">
+    <app-navbar-pub></app-navbar-pub>
+</div>
+<div class="contenitore-affiliati">
+    <div class="contenitore-1 ml-2">
+        <div class="card light-blue darken-4">
+            <div class="card-content white-text">
+                <ul class="collection with-header">
+                    <li class="collection-header">
+                        <h5>I nostri affiliati</h5>
+                    </li>
+                    <li class="collection-item avatar"
+                        *ngFor="let affiliato of affiliatiArray | paginate:{itemsPerPage: 5, currentPage:p}">
+                        <img src="https://image.flaticon.com/icons/svg/172/172163.svg" alt="" class="circle">
+                        <span class="title">{{affiliato.Nome}}</span>
+                        <p>
+                            <a href="{{affiliato.CanaleYoutube}}" *ngIf="affiliato.CanaleYoutube">Youtube
+                                Channel&nbsp;&nbsp;<i class="fab fa-youtube fa-2x"></i></a>
+                            <br>
+                            <a href="{{affiliato.PaginaFacebook}}" *ngIf="affiliato.PaginaFacebook">Facebook
+                                Pagina&nbsp;&nbsp;<i class="fab fa-facebook-square fa-2x"></i></a>
+                            <br>
+                            <a href="{{affiliato.ProfiloInstagram}}" *ngIf="affiliato.ProfiloInstagram">Profilo
+                                Instagram&nbsp;&nbsp;<i class="fab fa-instagram fa-2x"></i></a>
+                            <br>
+                            <a href="{{affiliato.ProfiloSteam}}" *ngIf="affiliato.ProfiloSteam">Profilo
+                                Steam&nbsp;&nbsp;<i class="fab fa-steam fa-2x"></i></a>
+                        </p>
+                        <br>
+                        <a href="{{affiliato.CanaleTwitch}}" class="secondary-content"><i
+                                class="fab fa-twitch fa-2x"></i></a>
+                    </li>
+                    <div id="pagination" class="mt-2" style="text-align: center;" *ngIf="affiliatiArray.length > 5">
+                        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="{{viewStreamer.classeContenitore}} mx-2">
+        <h4 class="text-center">Affiliazioni</h4>
+        <div class="input-group mb-3">
+            Tipo di visualizzazione :&nbsp;&nbsp;
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">
+                    <i class="fa fa-filter" aria-hidden="true"></i></label>
+            </div>
+            <form [formGroup]="viewStreamerGroup">
+                <select formControlName="viewSelected" class="custom-select" id="inputGroupSelect01"
+                    (change)="setView($event.target.value)">
+                    <option [value]="view" *ngFor="let view of viewsSelector">{{view}}</option>
+                </select>
+            </form>
+        </div>
+        <div *ngFor="let userNickname of viewStreamer.nicknameTwitch; let i = index"
+            class="{{viewStreamer.classeRiquadriTwitch[i]}} mb-3">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe [src]="viewStreamer.src[i]" frameborder="0" allowfullscreen="true" scrolling="no" height="320"
+                    width="680">
+                </iframe>
+                <a [href]="viewStreamer.href[i]"
+                    style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">
+                    Guarda il video live di {{userNickname}} su www.twitch.tv</a> -->
+            </div>
+        </div>
+    </div>
+    <div class="contenitore-3 mr-2">
+        <div class="card light-blue darken-4">
+            <div class="card-content white-text">
+                pubblicità ??
+            </div>
+        </div>
+    </div>
+</div>
+
+<form class="formAffiliazione blue darken-4 mb-4" [formGroup]="affiliazioneForm" (ngSubmit)="sendDomanda()">
+    <div class="contenitore-1 mx-3">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Diventa uno dei nostri !</h1>
+    </div>
+    <div class="contenitore-2 mx-3">
+        <input type="text" formControlName="twitchChannel" name="twitchChannel" class="form-control"
+            placeholder="{{affiliazioneForm.value.twitchChannel !== '' ? affiliazioneForm.value.twitchChannel : 'Inserisci il link del tuo canale di Twitch'}}"
+            required="">
+        <input type="text" formControlName="youtubeChannel" name="youtubeChannel" class="form-control"
+            placeholder="{{affiliazioneForm.value.youtubeChannel !== '' ? affiliazioneForm.value.youtubeChannel : 'Inserisci il link del tuo canale di Youtube'}}"
+            required="">
+        <input type="text" formControlName="profileSteam" name="profileSteam" class="form-control"
+            placeholder="{{affiliazioneForm.value.pageFacebook !== '' ? affiliazioneForm.value.profileSteam : 'Inserisci il tuo nickname di Steam'}}"
+            required="">
+        <input type="text" formControlName="profileInstagram" name="profileInstagram" class="form-control"
+            placeholder="{{affiliazioneForm.value.profileInstagram !== '' ? affiliazioneForm.value.profileInstagram : 'Inserisci il link del profilo di Instagram'}}"
+            required="">
+        <input type="text" formControlName="pageFacebook" name="pageFacebook" class="form-control"
+            placeholder="{{affiliazioneForm.value.pageFacebook !== '' ? affiliazioneForm.value.pageFacebook : 'Inserisci il link della tua pagina Facebook'}}"
+            required="">
+    </div>
+    <div class="contenitore-3 mx-3">
+        <input type="text" formControlName="name" name="name" class="form-control" placeholder="Nome" required="">
+        <input type="text" formControlName="nickname" name="nickname" class="form-control" placeholder="Nickname"
+            required="">
+    </div>
+    <div class="contenitore-4 mx-2">
+        <button class="btn btn-primary" type="submit">
+            <i class="fa fa-paper-plane"></i> Manda
+            richiesta</button>
+    </div>
+</form>

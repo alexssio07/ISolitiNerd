@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 offset-xl" style="text-align: center;">
+            <!-- <button class="btn btn-success m-1" (click)="alertService.success('Success!!', options)">Success</button> -->
+            <alert></alert>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-8 offset-xl-2 py-5">
+            <p class="lead">Questa è una demo per l'invio dell'email non perfezionata</p>
+            <form id="contact-form" [formGroup]="sendMailForm" (ngSubmit)="sendMailValidation(sendMailForm.value)" role="form">
+                <div class="messages"></div>
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_name">Inserisci il tuo nome</label>
+                                <input id="form_name" type="text" formControlName="name" name="name"
+                                    class="form-control" placeholder="Nome" required="required"
+                                    data-error="Firstname is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_lastname">Inserisci il tuo nickname</label>
+                                <input id="form_lastname" type="text" formControlName="nickname" name="nickname"
+                                    class="form-control" placeholder="Nickname" required="required"
+                                    data-error="Lastname is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_email">Inserisci la tua E-Mail</label>
+                                <input id="form_email" type="email" formControlName="email" name="email"
+                                    class="form-control" placeholder="E-Mail*" required="required"
+                                    data-error="Valid email is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_need">Tipo supporto da chiedere</label>
+                                <select id="form_need" formControlName="typeSupportForm" name="typeSupportForm"
+                                    class="form-control" required="required" data-error="Please specify your need.">
+                                    <option [value]="typeSupports[i].descr"
+                                        *ngFor="let request of typeSupports let i = index"
+                                        [selected]="typeSupports[i].selected == true">{{typeSupports[i].descr}}</option>
+                                </select>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="form_message">Messaggio *</label>
+                                <textarea id="form_message" formControlName="message" name="message"
+                                    class="form-control" placeholder="Testo..." rows="8" required="required"
+                                    data-error="Please, leave us a message."></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-success btn-send disabled" value="Invia l'email">
+                            <input type="submit" class="btn btn-secondary" routerLink="/homepublica" value="Torna alla Home">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
