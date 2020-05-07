@@ -28,12 +28,13 @@ export class BlogserviceService {
     });
   }
 
-  getPost(id : any) {
+  getPost(id) {
     let api = `${this.endpoint}/getPost`;
+    var request = { id: id };
     return new Promise (resolve => {
-      this.http.post<any>(api, id)
+      this.http.post<any>(api, request)
       .subscribe((res: any) => {
-        if (res.posts != "") {
+        if (res.post != "") {
           resolve(res.post);
         }
       });

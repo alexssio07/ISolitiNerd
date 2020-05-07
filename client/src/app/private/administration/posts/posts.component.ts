@@ -12,18 +12,33 @@ export class PostsComponent implements OnInit {
 
   @Input('isOpen') isOpen: boolean;
 
+  currentPost: Post;
   currentPosts: Post[];
   users: any[];
+  votiTotaliPosts: any = 0;
+  votoMediaPosts: any = 0;
+  commentiTotali: any = 0;
+  postTotali: number = 0;
+  usersCommentiTotali: number = 0;
 
   constructor(private blogService : BlogserviceService, private userService: UserService,) { }
 
   ngOnInit() {
     this.blogService.getAllPosts().then(value => {
       this.setPosts(value);
+      this.getPostsTotali();
+      this.getVotiTotali();
       this.userService.getUsers().then(value => {
         this.setUsers(value);
         this.setAuthorPosts();
       });
+    });
+  }
+
+  mostraPost(id) {
+    this.blogService.getPost(id).then(post => {
+      this.currentPost = JSON.parse(JSON.stringify(post));
+      this.setAuthorCurrentPost();
     });
   }
 
@@ -54,6 +69,32 @@ export class PostsComponent implements OnInit {
     }
   }
 
+  setAuthorCurrentPost() {
+    for (let i = 0; i < this.users.length; i++) {
+      if (this.currentPost.ID_User === this.users[i].ID) {
+        this.currentPost.UsernameAuthor = this.users[i].Username;
+      }
+    }
+  }
+  
+  getVotiTotali() {
+    for (let i = 0; i < this.currentPosts.length; i++) {
+      if (this.currentPosts[i].VotiTotali > 0) {
+        this.votiTotaliPosts += this.currentPosts[i].VotiTotali;
+      }
+    }
+  }
+
+  getPostsTotali() {
+    this.postTotali = this.currentPosts.length;
+  }
+
+  getUsersCommenti() {
+    // for (let i = 0; i < this.currentPosts.length; i++) {
+    //   const element = this.currentPosts[i];
+    //   if (this.currentPosts[i].)
+    // }
+  }
 }
 
 // export enum  {

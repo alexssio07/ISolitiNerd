@@ -6,7 +6,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Totale Posts</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">XXX</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{postTotali}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa fa-file-text fa-2x text-gray-300" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Totale Voti</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">XXX</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{votiTotaliPosts}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa fa-archive fa-2x" aria-hidden="true"></i>
@@ -35,17 +35,11 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Media commenti per Post
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Totali Commenti
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{commentiTotali}}</div>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +61,7 @@
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Totale utenti che
                                 hanno
                                 scritto post</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{usersCommentiTotali}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa fa-commenting fa-2x text-gray-300" aria-hidden="true"></i>
@@ -91,8 +85,8 @@
                         <th>Titolo</th>
                         <th>Contenuto</th>
                         <th>Autore</th>
-                        <th>Data Creazione</th>
-                        <th>Data Ultima Modifica</th>
+                        <th>Voto Medio</th>
+                        <th>Voti Totali</th>
                         <th>Mostra per intero</th>
                         <th>Elimina</th>
                     </tr>
@@ -103,10 +97,11 @@
                         <td>{{post.Titolo}}</td>
                         <td>{{post.Contenuto | slice:0:40}}....</td>
                         <td>{{post.UsernameAuthor}}</td>
-                        <td>{{post.DataPubblicazione | date:"dd/MM/yyyy"}}</td>
-                        <td>{{post.DataUltimaModifica | date:"dd/MM/yyyy"}}</td>
+                        <td>{{post.MediaVoto}}</td>
+                        <td>{{post.VotiTotali}}</td>
                         <td style="text-align: center;">
-                            <button type="button" class="btn btn-secondary">Mostra</button>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal"
+                                (click)="mostraPost(post.ID)">Mostra</button>
                         </td>
                         <td style="text-align: center;">
                             <button type="button" class="btn btn-danger">Elimina</button>
@@ -121,22 +116,19 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Open modal
-</button>
-
 <div class="modal" id="myModal">
     <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">Modal Heading</h4>
+            <h4 class="modal-title">Titolo : {{currentPost.Titolo}}</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-            Modal body..
+            {{currentPost.Contenuto}}
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            {{currentPost.UsernameAuthor}} - Data Pubblicazione : {{currentPost.DataPubblicazione | date:"dd/MM/yyyy"}}
+            - Data Ultima Modifica : {{currentPost.DataUltimaModifica | date:"dd/MM/yyyy"}}
+            &nbsp;<button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
         </div>
-
     </div>
 </div>
