@@ -48,4 +48,16 @@ export class UserService {
     });
   }
 
+  getAffiliati() {
+    let apiAffiliazioni = `${this.endpoint}/getAffiliazioni`;
+    return new Promise(resolve => {
+      this.http.get<any>(apiAffiliazioni)
+        .subscribe((res: any) => {
+          if (res.affiliazioni.length > 0) {
+            resolve(res.affiliazioni);
+          }
+        });
+    });
+  }
+
 }
