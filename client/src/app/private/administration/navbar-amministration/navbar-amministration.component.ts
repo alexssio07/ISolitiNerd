@@ -41,7 +41,6 @@ export class NavbarAmministrationComponent implements OnInit {
         this.menuDashboard[index].open = false;
       }
     }
-    console.log(this.menuDashboard);
   }
 
 

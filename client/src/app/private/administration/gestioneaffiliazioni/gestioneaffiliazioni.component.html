@@ -19,12 +19,12 @@
                     <tbody>
                         <tr *ngFor="let affiliato of listaProfiliUsers | paginate:{itemsPerPage: 5, currentPage:p}">
                             <td></td>
-                            <td><a href="{{affiliato.CanaleTwitch}}" title="Twitch Channel">{{affiliato.CanaleTwitch | slice:21 }}</a></td>
-                            <td>{{affiliato.CanaleYoutube}}</td>
-                            <td>{{affiliato.PaginaFacebook}}</td>
-                            <td>{{affiliato.ProfiloInstagram}}</td>
+                            <td><a href="{{affiliato.CanaleTwitch}}" title="Twitch Channel">{{affiliato.CanaleTwitch | slice:22 }}</a></td>
+                            <td><a href="{{affiliato.CanaleYoutube}}" title="Youtube Channel">{{affiliato.CanaleYoutube | slice:12}}</a></td>
+                            <td><a href="{{affiliato.PaginaFacebook}}" title="Facebook Page">{{affiliato.PaginaFacebook  | slice:12}}</a></td>
+                            <td><a href="{{affiliato.ProfiloInstagram}}" title="Instagram Profile">{{affiliato.ProfiloInstagram  | slice:12}}</a></td>
                             <td>
-                                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Mostra</button>
+                                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" (click)="openAffiliazione(affiliato.ID)">Mostra</button>
                             </td>
                         </tr>
                     </tbody>
@@ -45,11 +45,10 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-            Testo richiesta
+            {{currentAffiliazione.Richiesta }}
         </div>
         <div class="modal-footer">
-            UTENTE DELLA RICHIESTA: "" - 
-            &nbsp;<button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+            UTENTE DELLA RICHIESTA : 
         </div>
     </div>
 </div>

@@ -14,11 +14,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class HomePubComponent implements OnInit {
 
   endpoint: string = 'http://localhost:5000/api';
-  //headers = new HttpHeaders().set('Content-Type', 'application/json');
-  headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  });
 
   userAffiliato: UserAffiliato;
   listUsersAffiliati: UserAffiliato[] = [];
@@ -43,7 +38,7 @@ export class HomePubComponent implements OnInit {
   }
 
   showStreamingOurChannel() {
-    this.http.get<any>('https://api.twitch.tv/kraken?client_id=g4lsbrd0lf4bkytfng5gafkuc93ash')
+    this.http.get<any>('https://id.twitch.tv/oauth2/token')
       .subscribe((res: any) => {
         console.log(res);
         console.log(JSON.stringify(res));

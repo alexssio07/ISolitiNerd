@@ -7,6 +7,8 @@ var cors = require('cors');
 var jwt = require('jsonwebtoken');
 var jwtDecode = require('jwt-decode');
 const nodemailer = require("nodemailer");
+var twitch = require('twitch-api-v5');
+twitch.clientID = 'g4lsbrd0lf4bkytfng5gafkuc93ash';
 //var bcrypt = require('bcryptjs');
 var configSecretKey = require('./config.js');
 
@@ -29,7 +31,6 @@ sql.connect(config, function (err) {
     if (err) {
         console.log("ERRORE:" + err);
     }
-
 });
 
 app.get("/api/getUsers", function (req, res) {
@@ -144,7 +145,7 @@ app.post("/api/login", function (req, res) {
                         if (errorRuolo) throw errorRuolo;
                         if (resultsRuolo) {
                             if (resultsRuolo.length > 0) {
-                                return res.status(200).send({ auth: true, ruolo: resultsRuolo[0], message: 'Login confermato.'});
+                                return res.status(200).send({ auth: true, ruolo: resultsRuolo[0], message: 'Login confermato.' });
                             }
                             else {
                                 return res.status(401).send({ auth: false, message: 'Utente non autorizzato.', });
@@ -158,7 +159,7 @@ app.post("/api/login", function (req, res) {
                 else {
                     return res.status(200).send({ auth: false, passwordError: true, message: 'Utente non autorizzato.', });
                 }
-            }); 
+            });
         }
     });
 });

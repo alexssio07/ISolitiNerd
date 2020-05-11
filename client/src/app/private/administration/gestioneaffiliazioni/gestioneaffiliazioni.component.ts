@@ -14,6 +14,7 @@ export class GestioneaffiliazioniComponent implements OnInit {
 
   listaAffiliazioni: Affiliazione[] = [];
   listaProfiliUsers: ProfileComplete[] = [];
+  currentAffiliazione: Affiliazione = { ID: 0, Richiesta: '', ID_Profile: 0};
 
   constructor(private usersService: UserService) { }
 
@@ -35,6 +36,14 @@ export class GestioneaffiliazioniComponent implements OnInit {
           });
         });
       });
+    });
+  }
+
+  openAffiliazione(id) {
+    this.listaAffiliazioni.forEach(affiliato => {
+      if (affiliato.ID_Profile === id) {
+        this.currentAffiliazione = affiliato;
+      }
     });
   }
 
