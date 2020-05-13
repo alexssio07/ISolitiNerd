@@ -161,6 +161,9 @@ app.post("/api/login", function (req, res) {
                 }
             });
         }
+        else {
+            return res.status(200).send({ auth: false, utenteNonTrovato: true, message: 'Utente non trovato.', });
+        }
     });
 });
 
