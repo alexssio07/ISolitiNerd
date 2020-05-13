@@ -85,7 +85,9 @@ export class AuthenticationServiceService {
       this.http.post<any>(apiToken, user)
         .subscribe((res: any) => {
           var ruolo = "";
+          let response = JSON.parse(JSON.stringify(res));
           console.log("Login Authentication");
+          console.log(res);
           if (res.auth) {
             ruolo = res.ruolo.TipoRuolo;
             this.deleteCookieByUsername(tokenValue.user).then(deleteAuthentication => {
@@ -120,9 +122,9 @@ export class AuthenticationServiceService {
             });
           }
           else {
-            if (res.passwordError) {
-              resolve(res);
-            }
+            this.setLoginAvvenutaConSuccesso(false);
+            this.setRuolo("");
+            resolve(res);
           }
         });
     });

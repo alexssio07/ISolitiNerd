@@ -142,3 +142,23 @@
     margin: 0 auto;
     margin-bottom: 10px;
 }
+
+.custom-select {
+    padding: 5px;
+}
+
+.contenitore-filtri {
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    margin: 0 auto;
+}
+
+.contenitore-filtri > .filtro {
+    flex-grow: 1;
+    width: 50%;
+    margin: 0 auto;
+}

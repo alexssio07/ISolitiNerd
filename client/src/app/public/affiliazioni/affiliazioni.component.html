@@ -42,18 +42,24 @@
     </div>
     <div class="{{viewStreamer.classeContenitore}} mx-2">
         <h4 class="text-center">Affiliazioni</h4>
-        <div class="input-group mb-3">
-            Tipo di visualizzazione :&nbsp;&nbsp;
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">
-                    <i class="fa fa-filter" aria-hidden="true"></i></label>
+        <div class="input-group contenitore-filtri mb-3">
+            <div class="filtro">
+                <div class="input-group-prepend">
+                    <span>Tipo di visualizzazione :&nbsp;&nbsp;</span>
+                    <label class="input-group-text" for="inputGroupSelect01">
+                        <i class="fa fa-filter" aria-hidden="true"></i></label>
+                </div>
             </div>
-            <form [formGroup]="viewStreamerGroup">
-                <select formControlName="viewSelected" class="custom-select" id="inputGroupSelect01"
-                    (change)="setView($event.target.value)">
-                    <option [value]="view" *ngFor="let view of viewsSelector">{{view}}</option>
-                </select>
-            </form>
+            <div class="filtro">
+                <form [formGroup]="viewStreamerGroup">
+                    <select formControlName="viewSelected" class="custom-select" id="inputGroupSelect01"
+                        (change)="setView($event.target.value)">
+                        <option [value]="view" *ngFor="let view of viewsSelector">{{view}}</option>
+                    </select>
+                    <input type="text" id="nomeStreamer" class="form-control">
+                    <label>Inserisci il nome dello streamer</label>
+                </form>
+            </div>
         </div>
         <div *ngFor="let userNickname of viewStreamer.nicknameTwitch; let i = index"
             class="{{viewStreamer.classeRiquadriTwitch[i]}} mb-3">

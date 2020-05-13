@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.authenticateService.login(this.loginForm.value).then(value => {
+      console.log(value);
       var response = JSON.parse(JSON.stringify(value));
       if (value) {
         if (this.ricordami) {

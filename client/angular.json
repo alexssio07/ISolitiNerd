@@ -102,7 +102,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [ "D:/Progetti/Siti Web/i-soliti-nerd/server/app.js"]
+            "scripts": [
+              "D:/Progetti/Siti Web/i-soliti-nerd/server/app.js"
+            ]
           }
         },
         "lint": {
@@ -131,6 +133,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "i-soliti-nerd"
+    }
+  },
+  "defaultProject": "i-soliti-nerd",
+  "cli": {
+    "analytics": "566cf1e4-ef75-426c-9bcf-4587ff44fc70"
+  }
 }
